@@ -184,14 +184,15 @@ section[id],main[id]{scroll-margin-top:92px}
 .topo.transparente.aberto .hamburguer i::before,.topo.transparente.aberto .hamburguer i::after{background:var(--tinta)}
 .topo-in{display:flex;align-items:center;gap:24px;height:76px}
 .marca{display:flex;align-items:center;gap:9px;text-decoration:none;flex:0 0 auto;line-height:1}
-.marca svg{width:34px;height:34px;color:var(--carmim);transition:transform .5s var(--mola)}
+.marca svg{width:34px;height:34px;color:var(--carmim);transition:transform .5s var(--mola),color .3s ease}
 .marca:hover svg{transform:rotate(90deg)}
-.marca b{display:block;font-family:Manrope,sans-serif;font-weight:800;font-size:1.4rem;letter-spacing:-.015em;line-height:1}
-.marca span{display:block;font-size:.655rem;line-height:1.1;letter-spacing:0;font-weight:500;color:var(--tinta-45);margin-top:1px}
+.marca b{display:block;font-family:Manrope,sans-serif;font-weight:800;font-size:1.4rem;letter-spacing:-.015em;line-height:1;transition:color .3s ease}
+.marca span{display:block;font-size:.655rem;line-height:1.1;letter-spacing:0;font-weight:500;color:var(--tinta-45);margin-top:1px;transition:color .3s ease}
 .nav{display:flex;gap:2px;margin-left:auto}
 .nav a{position:relative;padding:9px 13px;white-space:nowrap;text-decoration:none;font-weight:600;font-size:.9rem;color:var(--tinta-70);transition:color .18s}
 .nav a::after{content:"";position:absolute;left:13px;right:13px;bottom:4px;height:1.5px;background:var(--carmim);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--mola)}
 .nav a:hover{color:var(--tinta)}
+.nav a,.hamburguer i,.hamburguer i::before,.hamburguer i::after,.hamburguer{transition:color .3s ease,background .3s ease,border-color .3s ease}
 .nav a:hover::after,.nav a.ativo::after{transform:scaleX(1)}
 .nav a.ativo{color:var(--carmim)}
 .topo .btn{padding:11px 20px;font-size:.87rem}
@@ -210,7 +211,7 @@ section[id],main[id]{scroll-margin-top:92px}
 /* --- heroi --- */
 .heroi{position:relative;isolation:isolate;overflow:hidden;color:#fff;margin-top:-76px;
   min-height:min(88vh,780px);display:flex;align-items:flex-end;
-  padding:clamp(150px,20vw,230px) 0 clamp(96px,10vw,150px)}
+  padding:clamp(150px,20vw,230px) 0 clamp(122px,13vw,196px)}
 .video-fundo{position:absolute;inset:0;z-index:0}
 .video-fundo video{width:100%;height:100%;object-fit:cover;display:block;background:#0E0E10}
 /* degrade que escurece o video para o texto se ler bem */
@@ -218,6 +219,10 @@ section[id],main[id]{scroll-margin-top:92px}
   background:linear-gradient(180deg,rgba(10,10,12,.80) 0%,rgba(10,10,12,.40) 30%,rgba(10,10,12,.58) 62%,rgba(10,10,12,.94) 100%)}
 .video-fundo::before{content:"";position:absolute;inset:0;z-index:1;
   background:radial-gradient(120% 90% at 12% 78%,rgba(10,10,12,.62) 0%,rgba(10,10,12,0) 62%)}
+/* o video nao acaba numa aresta: dissolve-se no fundo da pagina */
+.heroi::after{content:"";position:absolute;left:0;right:0;bottom:0;z-index:1;pointer-events:none;
+  height:clamp(90px,12vw,170px);
+  background:linear-gradient(180deg,rgba(245,243,241,0) 0%,rgba(245,243,241,.34) 42%,rgba(245,243,241,.78) 74%,var(--areia) 100%)}
 .heroi-in{position:relative;z-index:2}
 .heroi .rotulo{color:rgba(255,255,255,.72)}
 .heroi h1{margin:20px 0 0;font-weight:400;color:#fff;text-shadow:0 2px 30px rgba(0,0,0,.35)}
@@ -230,8 +235,9 @@ section[id],main[id]{scroll-margin-top:92px}
 /* --- cartoes com fotografia --- */
 .mosaico{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .cartao{position:relative;overflow:hidden;border-radius:var(--r-l);aspect-ratio:4/5;display:block;isolation:isolate;
+  box-shadow:0 18px 44px rgba(14,14,16,.20), 0 0 0 1px rgba(255,255,255,.14);
   transition:transform .45s var(--mola),box-shadow .45s ease}
-.cartao:hover{transform:translateY(-7px);box-shadow:0 28px 60px rgba(14,14,16,.22)}
+.cartao:hover{transform:translateY(-7px);box-shadow:0 30px 64px rgba(14,14,16,.28), 0 0 0 1px rgba(255,255,255,.22)}
 .cartao img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;
   transform:scale(1.16);transform-origin:50% 45%;will-change:transform}
 /* brilho que atravessa o cartao quando ele aparece */
@@ -467,6 +473,9 @@ section[id],main[id]{scroll-margin-top:92px}
   .passos-fotos .um,.passos-fotos .dois{aspect-ratio:1/1}
   .servir figure{aspect-ratio:16/10;max-height:420px}
   .mosaico,.tres,.dizimos-grid{grid-template-columns:1fr}
+  /* em coluna unica os cartoes descem para o fundo claro, longe do video */
+  .cartoes-heroi{margin-top:clamp(26px,5vw,40px)}
+  .heroi::after{height:clamp(120px,20vw,170px)}
   .cartaz-cima{grid-template-columns:1fr;align-items:start}
   .cartaz-baixo{grid-template-columns:1fr}
   .palco i:nth-child(3),.palco i:nth-child(4){display:none}
@@ -477,7 +486,7 @@ section[id],main[id]{scroll-margin-top:92px}
   .rodape-topo{grid-template-columns:1fr 1fr}
   .cartaz,.pilares,.servir,.convite{border-radius:var(--r-m)}
   .heroi h1 br{display:none}
-  .heroi{min-height:min(84vh,720px);padding:clamp(130px,26vw,180px) 0 clamp(80px,14vw,120px)}
+  .heroi{min-height:min(84vh,720px);padding:clamp(130px,26vw,180px) 0 clamp(104px,18vw,150px)}
 }
 @media (max-width:560px){
   .grelha-min{grid-template-columns:repeat(2,1fr)}
@@ -516,7 +525,7 @@ section[id],main[id]{scroll-margin-top:92px}
       <a href="#dizimos">Dízimos</a>
       <a href="#contactos">Contactos</a>
     </nav>
-    <a class="btn btn-primario" href="https://linktr.ee/igrejabatistacristaportugal" target="_blank" rel="noopener"><span>Falar connosco</span></a>
+    <a class="btn btn-primario" href="https://wa.me/351926615020?text=Ola%21%20Vim%20pelo%20site%20da%20IBAC%20e%20gostava%20de%20falar%20convosco." target="_blank" rel="noopener"><span>Falar connosco</span></a>
     <button class="hamburguer" id="botao-menu" aria-expanded="false" aria-controls="menu-movel" aria-label="Abrir menu"><i></i></button>
   </div>
   <div class="menu-movel" id="menu-movel">
@@ -527,7 +536,7 @@ section[id],main[id]{scroll-margin-top:92px}
       <a href="#agenda">Agenda</a>
       <a href="#dizimos">Dízimos</a>
       <a href="#contactos">Contactos</a>
-      <a class="btn btn-primario" href="https://linktr.ee/igrejabatistacristaportugal" target="_blank" rel="noopener"><span>Falar connosco</span></a>
+      <a class="btn btn-primario" href="https://wa.me/351926615020?text=Ola%21%20Vim%20pelo%20site%20da%20IBAC%20e%20gostava%20de%20falar%20convosco." target="_blank" rel="noopener"><span>Falar connosco</span></a>
     </div>
   </div>
 </header>
@@ -550,7 +559,7 @@ section[id],main[id]{scroll-margin-top:92px}
       </h1>
       <p class="lede entra" style="animation-delay:.46s">Somos a IBAC, uma igreja batista em Agualva-Cacém. Reunimo-nos todos os domingos às 18h30, na Rua da Bela Vista, e há sempre um lugar guardado para si.</p>
       <div class="acoes entra" style="animation-delay:.54s">
-        <a class="btn btn-branco" href="https://www.google.com/maps/search/?api=1&query=Rua+da+Bela+Vista+25,+2735-184+Agualva-Cac%C3%A9m" target="_blank" rel="noopener"><span>Como chegar</span><span class="seta" aria-hidden="true">→</span></a>
+        <a class="btn btn-branco" href="https://maps.app.goo.gl/MXZnZDEoUqTcaqUt9" target="_blank" rel="noopener"><span>Como chegar</span><span class="seta" aria-hidden="true">→</span></a>
         <a class="btn btn-fantasma" href="#novo"><span>É a minha primeira vez</span></a>
       </div>
     </div>
@@ -628,8 +637,8 @@ section[id],main[id]{scroll-margin-top:92px}
           <li><b>Rua da Bela Vista 25</b><span>Agualva-Cacém</span></li>
         </ul>
         <div class="acoes">
-          <a class="btn btn-primario" href="https://linktr.ee/igrejabatistacristaportugal" target="_blank" rel="noopener"><span>Quero participar</span><span class="seta" aria-hidden="true">&#8594;</span></a>
-          <a class="btn btn-fantasma" href="https://www.google.com/maps/search/?api=1&query=Rua+da+Bela+Vista+25,+2735-184+Agualva-Cac%C3%A9m" target="_blank" rel="noopener"><span>Como chegar</span></a>
+          <a class="btn btn-primario" href="https://wa.me/351926615020?text=Ola%21%20Vim%20pelo%20site%20e%20queria%20participar%20na%20Conf.%20Jovens%2C%20dias%203%20e%204%20de%20outubro." target="_blank" rel="noopener"><span>Quero participar</span><span class="seta" aria-hidden="true">&#8594;</span></a>
+          <a class="btn btn-fantasma" href="https://maps.app.goo.gl/MXZnZDEoUqTcaqUt9" target="_blank" rel="noopener"><span>Como chegar</span></a>
         </div>
         </div>
         <aside class="contagem" data-quando="2026-10-03T20:00:00+01:00" data-fim="2026-10-04T21:00:00+01:00" aria-label="Contagem decrescente para a conferência">
@@ -782,8 +791,8 @@ section[id],main[id]{scroll-margin-top:92px}
           <li>Preservar a unidade da casa e resolver conflitos de forma bíblica.</li>
         </ul>
         <div class="acoes" style="margin-top:0">
-          <a class="btn btn-branco" href="https://linktr.ee/igrejabatistacristaportugal" target="_blank" rel="noopener"><span>Quero servir</span><span class="seta" aria-hidden="true">→</span></a>
-          <a class="btn btn-fantasma" href="#contactos"><span>Falar com um líder</span></a>
+          <a class="btn btn-branco" href="https://wa.me/351926615020?text=Ola%21%20Vim%20pelo%20site%20e%20gostava%20de%20servir%20num%20ministerio%20da%20IBAC." target="_blank" rel="noopener"><span>Quero servir</span><span class="seta" aria-hidden="true">→</span></a>
+          <a class="btn btn-fantasma" href="https://wa.me/351926615020?text=Ola%21%20Vim%20pelo%20site%20e%20gostava%20de%20falar%20com%20um%20lider%20da%20IBAC." target="_blank" rel="noopener"><span>Falar com um líder</span></a>
         </div>
       </div>
     </div>
@@ -839,12 +848,12 @@ section[id],main[id]{scroll-margin-top:92px}
       <div class="dizimos-grid">
         <article class="dado revelar">
           <p class="rotulo">MBWAY</p>
-          <p class="valor" data-copiar="9XX XXX XXX">9XX XXX XXX</p>
+          <p class="valor" data-copiar="+351 926 615 020">+351 926 615 020</p>
           <button class="copiar" type="button">Copiar número</button>
         </article>
         <article class="dado revelar">
           <p class="rotulo">Transferência bancária</p>
-          <p class="valor" data-copiar="PT50 0000 0000 0000 0000 0000 0">PT50 0000 0000 0000 0000 0000 0</p>
+          <p class="valor" data-copiar="PT50 0010 0000 6113 1700 0010 4">PT50 0010 0000 6113 1700 0010 4</p>
           <button class="copiar" type="button">Copiar IBAN</button>
         </article>
         <article class="dado revelar">
@@ -864,8 +873,8 @@ section[id],main[id]{scroll-margin-top:92px}
       <h2 class="titulo" style="margin-top:16px">Guardámos-lhe<br>um <b>lugar</b>.</h2>
       <p>Venha como está. Traga a família, traga as perguntas. Às 18h30, na Rua da Bela Vista 25, em Agualva-Cacém.</p>
       <div class="acoes">
-        <a class="btn btn-primario" href="https://www.google.com/maps/search/?api=1&query=Rua+da+Bela+Vista+25,+2735-184+Agualva-Cac%C3%A9m" target="_blank" rel="noopener"><span>Como chegar</span><span class="seta" aria-hidden="true">→</span></a>
-        <a class="btn btn-fantasma" href="https://linktr.ee/igrejabatistacristaportugal" target="_blank" rel="noopener"><span>Falar connosco</span></a>
+        <a class="btn btn-primario" href="https://maps.app.goo.gl/MXZnZDEoUqTcaqUt9" target="_blank" rel="noopener"><span>Como chegar</span><span class="seta" aria-hidden="true">→</span></a>
+        <a class="btn btn-fantasma" href="https://wa.me/351926615020?text=Ola%21%20Vim%20pelo%20site%20da%20IBAC%20e%20queria%20visitar%20a%20igreja%20num%20domingo." target="_blank" rel="noopener"><span>Falar connosco</span></a>
       </div>
     </div>
   </section>
@@ -881,13 +890,13 @@ section[id],main[id]{scroll-margin-top:92px}
             <li><span>Morada</span><p>Rua da Bela Vista 25, Armazém 3<br>2735-184 Agualva-Cacém</p></li>
             <li><span>Culto</span><p>Domingo às 18h30</p></li>
             <li><span>Email</span><p><a href="mailto:geral@ibacportugal.pt">geral@ibacportugal.pt</a></p></li>
-            <li><span>WhatsApp</span><p><a href="https://linktr.ee/igrejabatistacristaportugal" target="_blank" rel="noopener">Falar com a igreja</a></p></li>
+            <li><span>WhatsApp</span><p><a href="https://wa.me/351926615020?text=Ola%21%20Vim%20pelo%20site%20da%20IBAC%20e%20gostava%20de%20falar%20convosco." target="_blank" rel="noopener">+351 926 615 020</a></p></li>
           </ul>
           <div class="redes">
             <a href="https://www.instagram.com/ibacportugal/" target="_blank" rel="noopener">Instagram</a>
             <a href="https://www.youtube.com/@ibacportugal" target="_blank" rel="noopener">YouTube</a>
             <a href="https://www.facebook.com/ibacportugal" target="_blank" rel="noopener">Facebook</a>
-            <a href="https://www.google.com/maps/search/?api=1&query=Rua+da+Bela+Vista+25,+2735-184+Agualva-Cac%C3%A9m" target="_blank" rel="noopener">Google Maps</a>
+            <a href="https://maps.app.goo.gl/MXZnZDEoUqTcaqUt9" target="_blank" rel="noopener">Google Maps</a>
           </div>
         </div>
         <div class="mapa revelar">
@@ -928,8 +937,8 @@ section[id],main[id]{scroll-margin-top:92px}
       <div>
         <h4>Encontrar</h4>
         <ul>
-          <li><a href="https://www.google.com/maps/search/?api=1&query=Rua+da+Bela+Vista+25,+2735-184+Agualva-Cac%C3%A9m" target="_blank" rel="noopener">Rua da Bela Vista 25, Agualva-Cacém</a></li>
-          <li><a href="https://linktr.ee/igrejabatistacristaportugal" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="https://maps.app.goo.gl/MXZnZDEoUqTcaqUt9" target="_blank" rel="noopener">Rua da Bela Vista 25, Agualva-Cacém</a></li>
+          <li><a href="https://wa.me/351926615020" target="_blank" rel="noopener">WhatsApp</a></li>
           <li><a href="https://www.instagram.com/ibacportugal/" target="_blank" rel="noopener">Instagram</a></li>
           <li><a href="https://www.youtube.com/@ibacportugal" target="_blank" rel="noopener">YouTube</a></li>
           <li><a href="mailto:geral@ibacportugal.pt">geral@ibacportugal.pt</a></li>
@@ -987,10 +996,11 @@ section[id],main[id]{scroll-margin-top:92px}
   /* barra transparente enquanto o video passa, clara depois */
   var heroi = document.querySelector('.heroi');
   var aoRolar = function(){
-    var limite = heroi ? heroi.offsetHeight - 120 : 8;
-    var passou = window.scrollY > limite;
-    topo.classList.toggle('colado', window.scrollY > 8);
-    topo.classList.toggle('transparente', !passou);
+    /* so no cimo de tudo a barra e transparente. Ao primeiro scroll fica clara
+       e o titulo do heroi passa por baixo dela, sem se sobreporem. */
+    var noCimo = window.scrollY < 24;
+    topo.classList.toggle('colado', !noCimo);
+    topo.classList.toggle('transparente', noCimo);
   };
   aoRolar(); window.addEventListener('scroll', aoRolar, {passive:true});
   window.addEventListener('resize', aoRolar);
