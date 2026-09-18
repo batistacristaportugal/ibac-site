@@ -51,26 +51,94 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Event",
-  "name": "Conf. Jovens IBAC",
-  "startDate": "2026-10-03T20:00+01:00",
-  "endDate": "2026-10-04T20:00+01:00",
-  "eventStatus": "https://schema.org/EventScheduled",
-  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-  "image": "https://ibacportugal.pt/assets/eventos/conf-jovens.webp",
-  "location": {
-    "@type": "Place",
-    "name": "IBAC · Igreja Batista Cristã Portugal",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Rua da Bela Vista 25, Armazém 3",
-      "postalCode": "2735-184",
-      "addressLocality": "Agualva-Cacém",
-      "addressCountry": "PT"
+  "@graph": [
+    {
+      "@type": "Event",
+      "name": "Imersão de Finanças · 2.ª edição",
+      "startDate": "2026-09-26T19:30+01:00",
+      "endDate": "2026-09-26T22:00+01:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "image": "https://ibacportugal.pt/assets/eventos/imersao-financas.webp",
+      "location": {
+        "@type": "Place",
+        "name": "IBAC · Igreja Batista Cristã Portugal",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Rua da Bela Vista 25, Armazém 3",
+          "postalCode": "2735-184",
+          "addressLocality": "Agualva-Cacém",
+          "addressCountry": "PT"
+        }
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "IBAC Portugal",
+        "url": "https://ibacportugal.pt/"
+      },
+      "isAccessibleForFree": true,
+      "performer": {
+        "@type": "Person",
+        "name": "Pr. Hanniel Pontes"
+      }
+    },
+    {
+      "@type": "Event",
+      "name": "Culto com o Pr. Juninho Afram",
+      "startDate": "2026-09-27T18:30+01:00",
+      "endDate": "2026-09-27T20:30+01:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "image": "https://ibacportugal.pt/assets/eventos/juninho-capa.webp",
+      "location": {
+        "@type": "Place",
+        "name": "IBAC · Igreja Batista Cristã Portugal",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Rua da Bela Vista 25, Armazém 3",
+          "postalCode": "2735-184",
+          "addressLocality": "Agualva-Cacém",
+          "addressCountry": "PT"
+        }
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "IBAC Portugal",
+        "url": "https://ibacportugal.pt/"
+      },
+      "isAccessibleForFree": true,
+      "performer": {
+        "@type": "Person",
+        "name": "Pr. Juninho Afram"
+      }
+    },
+    {
+      "@type": "Event",
+      "name": "Conf. Jovens IBAC",
+      "startDate": "2026-10-03T20:00+01:00",
+      "endDate": "2026-10-04T20:00+01:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "image": "https://ibacportugal.pt/assets/eventos/conf-jovens.webp",
+      "location": {
+        "@type": "Place",
+        "name": "IBAC · Igreja Batista Cristã Portugal",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Rua da Bela Vista 25, Armazém 3",
+          "postalCode": "2735-184",
+          "addressLocality": "Agualva-Cacém",
+          "addressCountry": "PT"
+        }
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "IBAC Portugal",
+        "url": "https://ibacportugal.pt/"
+      },
+      "isAccessibleForFree": true
     }
-  },
-  "organizer": { "@type": "Organization", "name": "IBAC Portugal", "url": "https://ibacportugal.pt/" },
-  "isAccessibleForFree": true
+  ]
 }
 </script>
 
@@ -259,59 +327,128 @@ section[id],main[id]{scroll-margin-top:92px}
 .cartao .marcador{position:absolute;top:18px;left:18px;z-index:2;background:var(--carmim);color:#fff;
   padding:7px 15px;border-radius:var(--r-p);font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
 
-/* --- cartaz do proximo evento --- */
+/* --- proximos eventos: varios cartazes no mesmo palco --- */
+/* cada tema define a cor das luzes (RGB), o destaque e o botao principal */
+[data-tema="jovens"]{--luzA:206,17,69;--luzB:242,207,31;--luzC:255,255,255;
+  --acento:#F2CF1F;--acento-txt:#0E0E10;--acento-texto:#F2CF1F;--cta:#CE1145;--cta-txt:#fff}
+[data-tema="financas"]{--luzA:1,245,184;--luzB:255,255,255;--luzC:0,170,130;
+  --acento:#01F5B8;--acento-txt:#0E0E10;--acento-texto:#3FF7C8;--cta:#01F5B8;--cta-txt:#0E0E10}
+[data-tema="juninho"]{--luzA:239,0,2;--luzB:255,110,40;--luzC:255,255,255;
+  --acento:#EF0002;--acento-txt:#fff;--acento-texto:#FF5147;--cta:#EF0002;--cta-txt:#fff}
+
 .cartaz{position:relative;overflow:hidden;background:var(--tinta);color:#fff;border-radius:var(--r-l);
   margin-inline:var(--gutter);padding:clamp(38px,4.6vw,68px) 0}
 .cartaz .brilho{position:absolute;z-index:0;width:70vw;height:70vw;max-width:900px;max-height:900px;right:-14%;top:-32%;
-  background:radial-gradient(circle,rgba(206,17,69,.55) 0%,rgba(206,17,69,0) 66%);pointer-events:none;
-  animation:flutuar 13s ease-in-out infinite alternate}
+  background:radial-gradient(circle,rgba(var(--luzA),.5) 0%,rgba(var(--luzA),0) 66%);pointer-events:none;
+  animation:flutuar 13s ease-in-out infinite alternate;transition:opacity .26s ease}
 @keyframes flutuar{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(-5%,7%,0) scale(1.12)}}
-.palco{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.palco{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;transition:opacity .26s ease}
+.cartaz.a-trocar .palco,.cartaz.a-trocar .brilho{opacity:0}
 .palco i{position:absolute;top:-34%;left:50%;width:17%;height:140%;transform-origin:50% 0;
   filter:blur(28px);mix-blend-mode:screen;will-change:transform}
-.palco i:nth-child(1){background:linear-gradient(180deg,rgba(206,17,69,.9),rgba(206,17,69,0) 74%);animation:luz1 9s ease-in-out -1s infinite alternate}
-.palco i:nth-child(2){background:linear-gradient(180deg,rgba(242,207,31,.55),rgba(242,207,31,0) 66%);animation:luz2 12s ease-in-out -5s infinite alternate}
-.palco i:nth-child(3){background:linear-gradient(180deg,rgba(255,255,255,.42),rgba(255,255,255,0) 60%);animation:luz3 7s ease-in-out -3s infinite alternate}
-.palco i:nth-child(4){background:linear-gradient(180deg,rgba(206,17,69,.7),rgba(206,17,69,0) 70%);animation:luz4 14s ease-in-out infinite alternate}
+.palco i:nth-child(1){background:linear-gradient(180deg,rgba(var(--luzA),.9),rgba(var(--luzA),0) 74%);animation:luz1 9s ease-in-out -1s infinite alternate}
+.palco i:nth-child(2){background:linear-gradient(180deg,rgba(var(--luzB),.55),rgba(var(--luzB),0) 66%);animation:luz2 12s ease-in-out -5s infinite alternate}
+.palco i:nth-child(3){background:linear-gradient(180deg,rgba(var(--luzC),.42),rgba(var(--luzC),0) 60%);animation:luz3 7s ease-in-out -3s infinite alternate}
+.palco i:nth-child(4){background:linear-gradient(180deg,rgba(var(--luzA),.7),rgba(var(--luzA),0) 70%);animation:luz4 14s ease-in-out infinite alternate}
 @keyframes luz1{from{transform:translateX(-190%) rotate(-32deg)}to{transform:translateX(-90%) rotate(14deg)}}
 @keyframes luz2{from{transform:translateX(10%) rotate(26deg)}to{transform:translateX(-70%) rotate(-16deg)}}
 @keyframes luz3{from{transform:translateX(-320%) rotate(-14deg)}to{transform:translateX(-250%) rotate(20deg)}}
 @keyframes luz4{from{transform:translateX(160%) rotate(18deg)}to{transform:translateX(70%) rotate(-22deg)}}
 .cartaz .wrap{position:relative;z-index:1}
+
+/* titulo do bloco e separadores */
+.eventos-topo{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px 32px;
+  margin-bottom:clamp(26px,3.2vw,44px)}
+.eventos-topo .rotulo{color:rgba(255,255,255,.6);margin:0}
+.separadores{display:none;gap:8px;overflow-x:auto;scrollbar-width:none;padding:3px;margin:-3px;max-width:100%}
+.separadores::-webkit-scrollbar{display:none}
+.cartaz.carrossel .separadores{display:flex}
+.cartaz.so-um .separadores{display:none}
+.separadores button{position:relative;overflow:hidden;flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-start;gap:3px;
+  padding:10px 18px 13px;border-radius:var(--r-s);border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);
+  color:#fff;font:inherit;text-align:left;cursor:pointer;
+  transition:background .3s ease,border-color .3s ease,color .3s ease,transform .3s var(--mola)}
+.separadores button:hover{background:rgba(255,255,255,.12);transform:translateY(-2px)}
+.separadores small{font-size:.64rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.58)}
+.separadores span{font-size:.88rem;font-weight:700;white-space:nowrap}
+.separadores [aria-selected="true"]{background:var(--acento);border-color:var(--acento);color:var(--acento-txt)}
+.separadores [aria-selected="true"]:hover{background:var(--acento)}
+.separadores [aria-selected="true"] small{color:inherit;opacity:.72}
+.separadores .progresso{position:absolute;left:0;right:0;bottom:0;height:3px;background:currentColor;opacity:.45;
+  transform:scaleX(0);transform-origin:left}
+.cartaz.auto .separadores [aria-selected="true"] .progresso{animation:progresso 9s linear forwards}
+.cartaz.pausa-rato .separadores .progresso,.cartaz.pausa-foco .separadores .progresso,
+.cartaz.pausa-fora .separadores .progresso{animation-play-state:paused}
+@keyframes progresso{to{transform:scaleX(1)}}
+
+/* os eventos ficam empilhados na mesma celula quando ha carrossel, por isso o bloco nao salta de altura */
+.eventos-palco{display:grid;gap:clamp(56px,7vw,96px)}
+.ev{min-width:0}
+.cartaz.carrossel .ev{grid-area:1/1;opacity:0;visibility:hidden;transform:translateY(14px);
+  transition:opacity .4s ease,transform .6s var(--mola),visibility 0s linear .4s}
+.cartaz.carrossel .ev.ativo{opacity:1;visibility:visible;transform:none;
+  transition:opacity .5s ease .12s,transform .7s var(--mola) .12s,visibility 0s}
+
 .cartaz-cima{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(20px,3vw,48px);align-items:end;margin-bottom:clamp(24px,3vw,38px)}
-.cartaz .etiqueta{display:inline-block;background:var(--amarelo);color:var(--tinta);padding:7px 16px;border-radius:var(--r-p);
+.cartaz .etiqueta{display:inline-block;background:var(--acento);color:var(--acento-txt);padding:7px 16px;border-radius:var(--r-p);
   font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
 .cartaz-titulo{margin-top:18px;color:#fff;font-weight:700;font-size:clamp(2.1rem,5.2vw,4.2rem);letter-spacing:-.03em}
-.cartaz .mask>i{transform:translateY(105%);animation:none}
-.cartaz.mostrar .mask>i{animation:mascara 1s var(--mola) both}
+.cartaz.carrossel .ev .mask>i{transform:translateY(105%);animation:none}
+.cartaz.carrossel .ev.mostrar .mask>i{animation:mascara 1s var(--mola) both}
 .cartaz-lede{color:rgba(255,255,255,.72);font-size:clamp(.98rem,1.2vw,1.1rem);padding-bottom:8px}
-.poster{margin:0;border-radius:var(--r-m);overflow:hidden;background:#E9E7E4;
-  box-shadow:0 34px 80px rgba(0,0,0,.5);clip-path:inset(0 0 100% 0);
-  transition:box-shadow .4s ease,transform .5s var(--mola);will-change:transform}
-.cartaz.mostrar .poster{animation:abrir 1.05s var(--mola) .1s both}
+.ev .btn-primario{background:var(--cta);color:var(--cta-txt)}
+.ev .btn-primario:hover{background:var(--cta);filter:brightness(1.08);box-shadow:0 14px 30px rgba(var(--luzA),.34)}
+
+/* moldura: todos os cartazes com a mesma proporcao do ficheiro (1800x850) */
+.poster{position:relative;margin:0;border-radius:var(--r-m);overflow:hidden;background:#E9E7E4;aspect-ratio:1800/850;
+  box-shadow:0 34px 80px rgba(0,0,0,.5);transition:box-shadow .4s ease,transform .5s var(--mola);will-change:transform}
+.cartaz.carrossel .poster{clip-path:inset(0 0 100% 0)}
+.cartaz.carrossel .ev.mostrar .poster{animation:abrir 1.05s var(--mola) .1s both}
 @keyframes abrir{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
-.poster img{width:100%;height:auto;display:block;transform:scale(1.06);transition:transform 1.6s var(--mola)}
-.cartaz.mostrar .poster img{transform:none}
-.poster:hover{box-shadow:0 40px 90px rgba(206,17,69,.28)}
-.poster:hover img,.poster:hover .anotacao{transform:scale(1.02)}
+.poster>img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.06);transition:transform 1.6s var(--mola)}
+.ev.mostrar .poster>img{transform:none}
+.poster:hover{box-shadow:0 40px 90px rgba(var(--luzA),.3)}
+.poster:hover>img,.poster:hover .anotacao{transform:scale(1.02)}
+
+/* cartaz em video: o video inteiro, sem cortes, sobre uma copia desfocada dele proprio */
+.poster-video{background:#0E0E10}
+.poster-video .fundo-video{position:absolute;inset:-10%;width:120%;height:120%;max-width:none;object-fit:cover;
+  filter:blur(26px) brightness(.5) saturate(1.25)}
+.poster-video video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
+.som{position:absolute;right:14px;bottom:14px;z-index:2;display:inline-flex;align-items:center;gap:8px;
+  padding:9px 16px 9px 12px;border-radius:var(--r-p);border:1px solid rgba(255,255,255,.3);
+  background:rgba(14,14,16,.55);backdrop-filter:blur(8px);color:#fff;font:inherit;font-size:.8rem;font-weight:700;cursor:pointer;
+  transition:background .25s ease,border-color .25s ease,color .25s ease,transform .25s var(--mola)}
+.som:hover{background:rgba(14,14,16,.82);transform:translateY(-2px)}
+.som svg{width:18px;height:18px;flex:0 0 auto}
+.som .onda,.som .corte{transition:opacity .2s ease}
+.som[aria-pressed="false"] .onda{opacity:0}
+.som[aria-pressed="true"] .corte{opacity:0}
+.som[aria-pressed="true"]{background:var(--cta);border-color:var(--cta);color:var(--cta-txt)}
+
+/* riscos desenhados por cima dos cartazes */
 .anotacao{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;
   transform:scale(1.06);transition:transform 1.6s var(--mola)}
-.cartaz.mostrar .anotacao{transform:none}
-.anotacao path{stroke-dasharray:100;stroke-dashoffset:100}
+.ev.mostrar .anotacao{transform:none}
+.cartaz.carrossel .anotacao path{stroke-dasharray:100;stroke-dashoffset:100}
 @keyframes desenhar{to{stroke-dashoffset:0}}
 @keyframes pulsar{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}
-.cartaz.mostrar .anotacao .circulo{animation:desenhar 1.15s var(--mola) 1.05s forwards}
-.cartaz.mostrar .anotacao .swoosh{animation:desenhar .65s var(--mola) 1.95s forwards}
-.cartaz.mostrar .anotacao .seta{animation:desenhar .75s var(--mola) 2.25s forwards}
-.cartaz.mostrar .anotacao .ponta{animation:desenhar .3s var(--mola) 2.9s forwards}
-.cartaz.mostrar .anotacao g{transform-origin:15.4% 66%;animation:pulsar 4s ease-in-out 3.4s infinite}
+.ev.mostrar .anotacao .circulo{animation:desenhar 1.15s var(--mola) 1.05s forwards}
+.ev.mostrar .anotacao .swoosh{animation:desenhar .65s var(--mola) 1.95s forwards}
+.ev.mostrar .anotacao .risco{animation:desenhar .3s var(--mola) 1.95s forwards}
+.ev.mostrar .anotacao .r2{animation-delay:2.05s}
+.ev.mostrar .anotacao .r3{animation-delay:2.15s}
+.ev.mostrar .anotacao .seta{animation:desenhar .75s var(--mola) 2.25s forwards}
+.ev.mostrar .anotacao .ponta{animation:desenhar .3s var(--mola) 2.9s forwards}
+.ev.mostrar .anotacao g{animation:pulsar 4s ease-in-out 3.4s infinite}
+
 .cartaz-baixo{display:grid;grid-template-columns:1fr auto;gap:clamp(20px,3vw,44px);align-items:center;
   margin-top:clamp(24px,3vw,38px);padding-top:clamp(22px,2.6vw,32px);border-top:1px solid rgba(255,255,255,.16)}
 .cartaz-info{display:flex;flex-direction:column;gap:18px}
 .cartaz .datas{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:clamp(18px,2.4vw,40px)}
-.cartaz .datas li{display:flex;flex-direction:column;gap:2px}
+.cartaz .datas li{display:flex;flex-direction:column;gap:2px;padding:0}
 .cartaz .datas b{color:rgba(255,255,255,.62);font-size:.76rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
-.cartaz .datas span{color:var(--amarelo);font-family:Archivo,sans-serif;font-size:clamp(1.2rem,1.8vw,1.6rem);letter-spacing:-.02em}
+.cartaz .datas span{color:var(--acento-texto);font-family:Archivo,sans-serif;font-size:clamp(1.2rem,1.8vw,1.6rem);letter-spacing:-.02em}
 .contagem{align-self:center;background:rgba(255,255,255,.09);backdrop-filter:blur(10px);
   border:1px solid rgba(255,255,255,.2);border-radius:var(--r-m);padding:18px 26px;text-align:center}
 .contagem .rotulo{color:rgba(255,255,255,.55);margin-bottom:12px}
@@ -319,9 +456,8 @@ section[id],main[id]{scroll-margin-top:92px}
 .relogio div{text-align:center;min-width:44px}
 .relogio b{display:block;font-family:Archivo,sans-serif;font-weight:500;font-size:1.5rem;letter-spacing:-.03em;line-height:1}
 .relogio span{display:block;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:5px}
-.contagem .passou{font-family:Archivo,sans-serif;font-size:1.1rem;letter-spacing:-.02em}
+.contagem .passou{font-family:Archivo,sans-serif;font-size:1.4rem;letter-spacing:-.02em;color:var(--acento-texto)}
 .cartaz .acoes{margin-top:0}
-.cartaz .datas li{padding:0}
 
 /* --- faixa dos pilares --- */
 .pilares{background:var(--carmim);color:#fff;padding:var(--passo) 0;border-radius:var(--r-l);margin-inline:var(--gutter)}
@@ -478,6 +614,8 @@ section[id],main[id]{scroll-margin-top:92px}
   .heroi::after{height:clamp(120px,20vw,170px)}
   .cartaz-cima{grid-template-columns:1fr;align-items:start}
   .cartaz-baixo{grid-template-columns:1fr}
+  .eventos-topo{flex-direction:column;align-items:stretch}
+  .contagem{justify-self:start}
   .palco i:nth-child(3),.palco i:nth-child(4){display:none}
   .contactos-grid{grid-template-columns:1fr}
   .compromissos{grid-template-columns:1fr;gap:0}
@@ -500,6 +638,8 @@ section[id],main[id]{scroll-margin-top:92px}
   .acoes .btn{flex:1;justify-content:center}
   .cartaz .datas{gap:14px 26px}
   .relogio{gap:14px}
+  .som{right:8px;bottom:8px;padding:7px 12px 7px 9px;font-size:.72rem}
+  .som svg{width:15px;height:15px}
 }
 </style>
 </head>
@@ -525,7 +665,7 @@ section[id],main[id]{scroll-margin-top:92px}
       <a href="#dizimos">Dízimos</a>
       <a href="#contactos">Contactos</a>
     </nav>
-    <a class="btn btn-primario" href="https://wa.me/351926615020?text=Ola%21%20Vim%20pelo%20site%20da%20IBAC%20e%20gostava%20de%20falar%20convosco." target="_blank" rel="noopener"><span>Falar connosco</span></a>
+    <a class="btn btn-primario" href="https://wa.me/351926615020?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20IBAC%20e%20gostava%20de%20falar%20convosco." target="_blank" rel="noopener"><span>Falar connosco</span></a>
     <button class="hamburguer" id="botao-menu" aria-expanded="false" aria-controls="menu-movel" aria-label="Abrir menu"><i></i></button>
   </div>
   <div class="menu-movel" id="menu-movel">
@@ -536,7 +676,7 @@ section[id],main[id]{scroll-margin-top:92px}
       <a href="#agenda">Agenda</a>
       <a href="#dizimos">Dízimos</a>
       <a href="#contactos">Contactos</a>
-      <a class="btn btn-primario" href="https://wa.me/351926615020?text=Ola%21%20Vim%20pelo%20site%20da%20IBAC%20e%20gostava%20de%20falar%20convosco." target="_blank" rel="noopener"><span>Falar connosco</span></a>
+      <a class="btn btn-primario" href="https://wa.me/351926615020?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20IBAC%20e%20gostava%20de%20falar%20convosco." target="_blank" rel="noopener"><span>Falar connosco</span></a>
     </div>
   </div>
 </header>
@@ -598,57 +738,160 @@ section[id],main[id]{scroll-margin-top:92px}
     </div>
   </section>
 
-  <!-- ============ PROXIMO EVENTO ============
-       Para anunciar outro evento: trocar o cartaz em assets/eventos/, as datas
-       e os textos. A contagem usa data-quando e data-fim (formato ISO com fuso). -->
-  <section class="cartaz" id="conf-jovens" aria-labelledby="t-evento">
+  <!-- ============ PROXIMOS EVENTOS ============
+       Cada evento e um artigo com a classe ev, todos com o mesmo desenho, por ordem de data.
+       data-fim  · passada essa hora o evento sai sozinho do site, com o separador e a linha da agenda.
+       data-tema · cor das luzes e dos destaques: jovens, financas ou juninho (definidos no CSS).
+       Evento novo: copiar um artigo, trocar textos, datas, cartaz e tema, e juntar o seu separador. -->
+  <section class="cartaz" id="eventos" data-tema="financas" aria-labelledby="t-eventos">
     <span class="brilho" aria-hidden="true"></span>
     <span class="palco" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
     <div class="wrap">
-      <div class="cartaz-cima revelar">
-        <div>
-          <span class="etiqueta">Próximo evento · Jovens</span>
-          <h2 class="cartaz-titulo" id="t-evento"><span class="mask"><i>Conf. Jovens IBAC</i></span></h2>
+      <div class="eventos-topo">
+        <h2 class="rotulo" id="t-eventos">Próximos eventos</h2>
+        <div class="separadores" role="tablist" aria-label="Escolher evento">
+          <button type="button" role="tab" id="sep-financas" aria-controls="ev-financas" data-tema="financas" aria-selected="true"><small>Sáb 26 set</small><span>Imersão de Finanças</span><i class="progresso" aria-hidden="true"></i></button>
+          <button type="button" role="tab" id="sep-juninho" aria-controls="ev-juninho" data-tema="juninho" aria-selected="false" tabindex="-1"><small>Dom 27 set</small><span>Pr. Juninho Afram</span><i class="progresso" aria-hidden="true"></i></button>
+          <button type="button" role="tab" id="sep-jovens" aria-controls="ev-jovens" data-tema="jovens" aria-selected="false" tabindex="-1"><small>3 e 4 out</small><span>Conf. Jovens IBAC</span><i class="progresso" aria-hidden="true"></i></button>
         </div>
-        <p class="cartaz-lede">Dois dias para a nova geração desta casa: louvor, Palavra e gente a caminhar na mesma direção. Traga os seus amigos.</p>
       </div>
 
-      <figure class="poster" id="poster">
-        <img src="assets/eventos/conf-jovens.webp" width="1800" height="850"
-             alt="Cartaz da Conf. Jovens IBAC, 3 e 4 de outubro de 2026, sábado às 20h00 e domingo às 18h30"
-             loading="lazy" decoding="async">
-        <!-- riscos desenhados por cima do cartaz, alinhados com a data 3-4 -->
-        <svg class="anotacao" viewBox="0 0 1800 850" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-          <g fill="none" stroke="#CE1145" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
-            <path class="circulo" pathLength="100" transform="rotate(-5 277 560)"
-                  d="M131 560a146 92 0 1 0 292 0a146 92 0 1 0-292 0"/>
-            <path class="swoosh" pathLength="100" d="M186 702q94 34 190 -6"/>
-            <path class="seta" pathLength="100" d="M52 790C62 710 84 648 120 598"/>
-            <path class="ponta" pathLength="100" d="M92 626L122 592L154 610"/>
-          </g>
-        </svg>
-      </figure>
+      <div class="eventos-palco">
 
-      <div class="cartaz-baixo revelar">
-        <div class="cartaz-info">
-        <ul class="datas">
-          <li><b>Sábado, 3 de outubro</b><span>20h00</span></li>
-          <li><b>Domingo, 4 de outubro</b><span>18h30</span></li>
-          <li><b>Rua da Bela Vista 25</b><span>Agualva-Cacém</span></li>
-        </ul>
-        <div class="acoes">
-          <a class="btn btn-primario" href="https://wa.me/351926615020?text=Ola%21%20Vim%20pelo%20site%20e%20queria%20participar%20na%20Conf.%20Jovens%2C%20dias%203%20e%204%20de%20outubro." target="_blank" rel="noopener"><span>Quero participar</span><span class="seta" aria-hidden="true">&#8594;</span></a>
-          <a class="btn btn-fantasma" href="https://maps.app.goo.gl/MXZnZDEoUqTcaqUt9" target="_blank" rel="noopener"><span>Como chegar</span></a>
-        </div>
-        </div>
-        <aside class="contagem" data-quando="2026-10-03T20:00:00+01:00" data-fim="2026-10-04T21:00:00+01:00" aria-label="Contagem decrescente para a conferência">
-          <p class="rotulo">Falta</p>
-          <div class="relogio">
-            <div><b data-dias>--</b><span>dias</span></div>
-            <div><b data-horas>--</b><span>horas</span></div>
-            <div><b data-min>--</b><span>min</span></div>
+        <!-- 1 · Imersao de Financas -->
+        <article class="ev ativo" id="ev-financas" role="tabpanel" aria-labelledby="sep-financas" data-tema="financas" data-fim="2026-09-26T22:30:00+01:00">
+          <div class="cartaz-cima">
+            <div>
+              <span class="etiqueta">2.ª edição · Finanças</span>
+              <h3 class="cartaz-titulo"><span class="mask"><i>Imersão de Finanças</i></span></h3>
+            </div>
+            <p class="cartaz-lede">A segunda Imersão de Finanças, com o Pr. Hanniel Pontes. Uma noite para olhar para as contas da casa à luz da Palavra.</p>
           </div>
-        </aside>
+          <figure class="poster">
+            <img src="assets/eventos/imersao-financas.webp" width="1800" height="850"
+                 alt="Cartaz da segunda Imersão de Finanças com o Pr. Hanniel Pontes, sábado 26 de setembro de 2026 às 19h30"
+                 loading="lazy" decoding="async">
+            <!-- riscos por cima da data do cartaz, nas coordenadas da imagem (1800x850) -->
+            <svg class="anotacao" viewBox="0 0 1800 850" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+              <g fill="none" stroke="#0E0E10" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" style="transform-origin:77.5% 56.5%">
+                <path class="circulo" pathLength="100" transform="rotate(-3 1395 480)" d="M1225 480a170 50 0 1 0 340 0a170 50 0 1 0-340 0"/>
+                <path class="risco r1" pathLength="100" d="M1540 424L1553 398"/>
+                <path class="risco r2" pathLength="100" d="M1565 439L1590 421"/>
+                <path class="risco r3" pathLength="100" d="M1577 461L1606 455"/>
+                <path class="seta" pathLength="100" d="M1712 648C1690 590 1640 540 1584 516"/>
+                <path class="ponta" pathLength="100" d="M1612 504L1582 516L1598 544"/>
+              </g>
+            </svg>
+          </figure>
+          <div class="cartaz-baixo">
+            <div class="cartaz-info">
+              <ul class="datas">
+                <li><b>Sábado, 26 de setembro</b><span>19h30</span></li>
+                <li><b>Com</b><span>Pr. Hanniel Pontes</span></li>
+                <li><b>Rua da Bela Vista 25</b><span>Agualva-Cacém</span></li>
+              </ul>
+              <div class="acoes">
+                <a class="btn btn-primario" href="https://wa.me/351926615020?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20queria%20participar%20na%20Imers%C3%A3o%20de%20Finan%C3%A7as%2C%20s%C3%A1bado%2026%20de%20setembro." target="_blank" rel="noopener"><span>Quero participar</span><span class="seta" aria-hidden="true">&#8594;</span></a>
+                <a class="btn btn-fantasma" href="https://maps.app.goo.gl/MXZnZDEoUqTcaqUt9" target="_blank" rel="noopener"><span>Como chegar</span></a>
+              </div>
+            </div>
+            <aside class="contagem" data-quando="2026-09-26T19:30:00+01:00" aria-label="Contagem decrescente para a Imersão de Finanças">
+              <p class="rotulo">Falta</p>
+              <div class="relogio">
+                <div><b data-dias>--</b><span>dias</span></div>
+                <div><b data-horas>--</b><span>horas</span></div>
+                <div><b data-min>--</b><span>min</span></div>
+              </div>
+            </aside>
+          </div>
+        </article>
+
+        <!-- 2 · Culto com o Pr. Juninho Afram · o cartaz e um video, com botao de som -->
+        <article class="ev" id="ev-juninho" role="tabpanel" aria-labelledby="sep-juninho" data-tema="juninho" data-fim="2026-09-27T21:00:00+01:00">
+          <div class="cartaz-cima">
+            <div>
+              <span class="etiqueta">Culto especial</span>
+              <h3 class="cartaz-titulo"><span class="mask"><i>Pr. Juninho Afram</i></span></h3>
+            </div>
+            <p class="cartaz-lede">Um Culto da Família diferente, com a guitarra e a Palavra do Pr. Juninho Afram. Traga a família e quem precisa de ouvir.</p>
+          </div>
+          <figure class="poster poster-video">
+            <img class="fundo-video" src="assets/eventos/juninho-capa.webp" width="1280" height="466" alt="" aria-hidden="true" loading="lazy" decoding="async">
+            <video class="video-evento" muted loop playsinline preload="none" poster="assets/eventos/juninho-capa.webp"
+                   data-grande="assets/eventos/juninho.mp4" data-movel="assets/eventos/juninho-movel.mp4"
+                   aria-label="Vídeo do Pr. Juninho Afram a tocar guitarra, a anunciar o culto de domingo 27 de setembro às 18h30"></video>
+            <button class="som" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor" stroke="none"/><path class="onda" d="M16.5 8.5a5 5 0 0 1 0 7M19.5 5.5a9 9 0 0 1 0 13"/><path class="corte" d="M16 9.5l5 5M21 9.5l-5 5"/></svg><span class="som-texto">Ouvir</span></button>
+          </figure>
+          <div class="cartaz-baixo">
+            <div class="cartaz-info">
+              <ul class="datas">
+                <li><b>Domingo, 27 de setembro</b><span>18h30</span></li>
+                <li><b>Culto da Família</b><span>Entrada livre</span></li>
+                <li><b>Rua da Bela Vista 25</b><span>Agualva-Cacém</span></li>
+              </ul>
+              <div class="acoes">
+                <a class="btn btn-primario" href="https://wa.me/351926615020?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20vou%20ao%20culto%20com%20o%20Pr.%20Juninho%20Afram%2C%20domingo%2027%20de%20setembro." target="_blank" rel="noopener"><span>Vou estar lá</span><span class="seta" aria-hidden="true">&#8594;</span></a>
+                <a class="btn btn-fantasma" href="https://maps.app.goo.gl/MXZnZDEoUqTcaqUt9" target="_blank" rel="noopener"><span>Como chegar</span></a>
+              </div>
+            </div>
+            <aside class="contagem" data-quando="2026-09-27T18:30:00+01:00" aria-label="Contagem decrescente para o culto com o Pr. Juninho Afram">
+              <p class="rotulo">Falta</p>
+              <div class="relogio">
+                <div><b data-dias>--</b><span>dias</span></div>
+                <div><b data-horas>--</b><span>horas</span></div>
+                <div><b data-min>--</b><span>min</span></div>
+              </div>
+            </aside>
+          </div>
+        </article>
+
+        <!-- 3 · Conf. Jovens IBAC -->
+        <article class="ev" id="ev-jovens" role="tabpanel" aria-labelledby="sep-jovens" data-tema="jovens" data-fim="2026-10-04T21:00:00+01:00">
+          <div class="cartaz-cima">
+            <div>
+              <span class="etiqueta">Jovens</span>
+              <h3 class="cartaz-titulo"><span class="mask"><i>Conf. Jovens IBAC</i></span></h3>
+            </div>
+            <p class="cartaz-lede">Dois dias para a nova geração desta casa: louvor, Palavra e gente a caminhar na mesma direção. Traga os seus amigos.</p>
+          </div>
+          <figure class="poster">
+            <img src="assets/eventos/conf-jovens.webp" width="1800" height="850"
+                 alt="Cartaz da Conf. Jovens IBAC, 3 e 4 de outubro de 2026, sábado às 20h00 e domingo às 18h30"
+                 loading="lazy" decoding="async">
+            <!-- riscos por cima da data 3-4 do cartaz, nas coordenadas da imagem (1800x850) -->
+            <svg class="anotacao" viewBox="0 0 1800 850" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+              <g fill="none" stroke="#CE1145" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" style="transform-origin:15.4% 66%">
+                <path class="circulo" pathLength="100" transform="rotate(-5 277 560)"
+                      d="M131 560a146 92 0 1 0 292 0a146 92 0 1 0-292 0"/>
+                <path class="swoosh" pathLength="100" d="M186 702q94 34 190 -6"/>
+                <path class="seta" pathLength="100" d="M52 790C62 710 84 648 120 598"/>
+                <path class="ponta" pathLength="100" d="M92 626L122 592L154 610"/>
+              </g>
+            </svg>
+          </figure>
+          <div class="cartaz-baixo">
+            <div class="cartaz-info">
+              <ul class="datas">
+                <li><b>Sábado, 3 de outubro</b><span>20h00</span></li>
+                <li><b>Domingo, 4 de outubro</b><span>18h30</span></li>
+                <li><b>Rua da Bela Vista 25</b><span>Agualva-Cacém</span></li>
+              </ul>
+              <div class="acoes">
+                <a class="btn btn-primario" href="https://wa.me/351926615020?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20queria%20participar%20na%20Conf.%20Jovens%2C%20dias%203%20e%204%20de%20outubro." target="_blank" rel="noopener"><span>Quero participar</span><span class="seta" aria-hidden="true">&#8594;</span></a>
+                <a class="btn btn-fantasma" href="https://maps.app.goo.gl/MXZnZDEoUqTcaqUt9" target="_blank" rel="noopener"><span>Como chegar</span></a>
+              </div>
+            </div>
+            <aside class="contagem" data-quando="2026-10-03T20:00:00+01:00" aria-label="Contagem decrescente para a Conf. Jovens IBAC">
+              <p class="rotulo">Falta</p>
+              <div class="relogio">
+                <div><b data-dias>--</b><span>dias</span></div>
+                <div><b data-horas>--</b><span>horas</span></div>
+                <div><b data-min>--</b><span>min</span></div>
+              </div>
+            </aside>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
@@ -791,8 +1034,8 @@ section[id],main[id]{scroll-margin-top:92px}
           <li>Preservar a unidade da casa e resolver conflitos de forma bíblica.</li>
         </ul>
         <div class="acoes" style="margin-top:0">
-          <a class="btn btn-branco" href="https://wa.me/351926615020?text=Ola%21%20Vim%20pelo%20site%20e%20gostava%20de%20servir%20num%20ministerio%20da%20IBAC." target="_blank" rel="noopener"><span>Quero servir</span><span class="seta" aria-hidden="true">→</span></a>
-          <a class="btn btn-fantasma" href="https://wa.me/351926615020?text=Ola%21%20Vim%20pelo%20site%20e%20gostava%20de%20falar%20com%20um%20lider%20da%20IBAC." target="_blank" rel="noopener"><span>Falar com um líder</span></a>
+          <a class="btn btn-branco" href="https://wa.me/351926615020?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostava%20de%20servir%20num%20minist%C3%A9rio%20da%20IBAC." target="_blank" rel="noopener"><span>Quero servir</span><span class="seta" aria-hidden="true">→</span></a>
+          <a class="btn btn-fantasma" href="https://wa.me/351926615020?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostava%20de%20falar%20com%20um%20l%C3%ADder%20da%20IBAC." target="_blank" rel="noopener"><span>Falar com um líder</span></a>
         </div>
       </div>
     </div>
@@ -814,10 +1057,20 @@ section[id],main[id]{scroll-margin-top:92px}
           <p class="quando">1.º domingo do mês · durante o culto</p>
           <span class="pilula fixo">Mensal</span>
         </article>
-        <article class="evento revelar">
+        <article class="evento revelar" data-fim="2026-09-26T22:30:00+01:00">
+          <h3>Imersão de Finanças</h3>
+          <p class="quando">Sábado, 26 de setembro · 19h30 · Pr. Hanniel Pontes</p>
+          <span class="pilula fixo">Evento especial</span>
+        </article>
+        <article class="evento revelar" data-fim="2026-09-27T21:00:00+01:00">
+          <h3>Culto com o Pr. Juninho Afram</h3>
+          <p class="quando">Domingo, 27 de setembro · 18h30</p>
+          <span class="pilula fixo">Culto especial</span>
+        </article>
+        <article class="evento revelar" data-fim="2026-10-04T21:00:00+01:00">
           <h3>Conf. Jovens IBAC</h3>
           <p class="quando">3 e 4 de outubro · sábado 20h00, domingo 18h30</p>
-          <span class="pilula fixo">Este mês</span>
+          <span class="pilula fixo">Evento especial</span>
         </article>
         <article class="evento revelar">
           <h3>Casa de Lídia</h3>
@@ -874,7 +1127,7 @@ section[id],main[id]{scroll-margin-top:92px}
       <p>Venha como está. Traga a família, traga as perguntas. Às 18h30, na Rua da Bela Vista 25, em Agualva-Cacém.</p>
       <div class="acoes">
         <a class="btn btn-primario" href="https://maps.app.goo.gl/MXZnZDEoUqTcaqUt9" target="_blank" rel="noopener"><span>Como chegar</span><span class="seta" aria-hidden="true">→</span></a>
-        <a class="btn btn-fantasma" href="https://wa.me/351926615020?text=Ola%21%20Vim%20pelo%20site%20da%20IBAC%20e%20queria%20visitar%20a%20igreja%20num%20domingo." target="_blank" rel="noopener"><span>Falar connosco</span></a>
+        <a class="btn btn-fantasma" href="https://wa.me/351926615020?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20IBAC%20e%20queria%20visitar%20a%20igreja%20num%20domingo." target="_blank" rel="noopener"><span>Falar connosco</span></a>
       </div>
     </div>
   </section>
@@ -890,7 +1143,7 @@ section[id],main[id]{scroll-margin-top:92px}
             <li><span>Morada</span><p>Rua da Bela Vista 25, Armazém 3<br>2735-184 Agualva-Cacém</p></li>
             <li><span>Culto</span><p>Domingo às 18h30</p></li>
             <li><span>Email</span><p><a href="mailto:geral@ibacportugal.pt">geral@ibacportugal.pt</a></p></li>
-            <li><span>WhatsApp</span><p><a href="https://wa.me/351926615020?text=Ola%21%20Vim%20pelo%20site%20da%20IBAC%20e%20gostava%20de%20falar%20convosco." target="_blank" rel="noopener">+351 926 615 020</a></p></li>
+            <li><span>WhatsApp</span><p><a href="https://wa.me/351926615020?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20IBAC%20e%20gostava%20de%20falar%20convosco." target="_blank" rel="noopener">+351 926 615 020</a></p></li>
           </ul>
           <div class="redes">
             <a href="https://www.instagram.com/ibacportugal/" target="_blank" rel="noopener">Instagram</a>
@@ -1054,27 +1307,165 @@ section[id],main[id]{scroll-margin-top:92px}
     });
   });
 
-  /* revelar ao entrar no ecra */
-  var cartaz = document.querySelector('.cartaz');
-  if(cartaz && 'IntersectionObserver' in window){
-    var obsC = new IntersectionObserver(function(e){
-      if(e[0].isIntersecting){ cartaz.classList.add('mostrar'); obsC.disconnect(); }
-    }, {threshold:.18});
-    obsC.observe(cartaz);
-    setTimeout(function(){ cartaz.classList.add('mostrar'); }, 3200);
-  } else if(cartaz){ cartaz.classList.add('mostrar'); }
-
-  /* o cartaz inclina-se ligeiramente com o rato */
-  var poster = document.getElementById('poster');
+  /* ================= PROXIMOS EVENTOS ================= */
   var suave = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(poster && !suave && window.matchMedia('(hover: hover)').matches){
-    poster.addEventListener('mousemove', function(ev){
-      var r = poster.getBoundingClientRect();
-      var x = (ev.clientX - r.left) / r.width - .5;
-      var y = (ev.clientY - r.top) / r.height - .5;
-      poster.style.transform = 'perspective(1200px) rotateY(' + (x * 4).toFixed(2) + 'deg) rotateX(' + (-y * 3).toFixed(2) + 'deg)';
+  var agoraMs = Date.now();
+
+  /* 1. o que ja passou sai do site: cartaz, separador e linha da agenda */
+  Array.prototype.forEach.call(document.querySelectorAll('.ev[data-fim], .evento[data-fim]'), function(el){
+    if(new Date(el.getAttribute('data-fim')).getTime() < agoraMs){
+      var sep = el.id ? document.querySelector('[aria-controls="' + el.id + '"]') : null;
+      if(sep && sep.parentNode){ sep.parentNode.removeChild(sep); }
+      if(el.parentNode){ el.parentNode.removeChild(el); }
+    }
+  });
+
+  var secEventos = document.getElementById('eventos');
+  var slides = secEventos ? Array.prototype.slice.call(secEventos.querySelectorAll('.ev')) : [];
+  if(secEventos && !slides.length){ secEventos.parentNode.removeChild(secEventos); secEventos = null; }
+
+  if(secEventos){
+    var seps = Array.prototype.slice.call(secEventos.querySelectorAll('[role="tab"]'));
+    var palcoEv = secEventos.querySelector('.eventos-palco');
+    var estreitoEv = window.matchMedia('(max-width: 820px)').matches;
+    var atual = -1, emVista = false;
+
+    secEventos.classList.add('carrossel');
+    if(slides.length < 2){ secEventos.classList.add('so-um'); }
+    else if(!suave){ secEventos.classList.add('auto'); }
+
+    var animarSlide = function(s){
+      s.classList.remove('mostrar');
+      void s.offsetWidth;                 /* reflow, para a animacao voltar ao inicio */
+      s.classList.add('mostrar');
+    };
+    var trocarTema = function(tema){
+      if(secEventos.getAttribute('data-tema') === tema) return;
+      secEventos.classList.add('a-trocar');
+      setTimeout(function(){
+        secEventos.setAttribute('data-tema', tema);
+        secEventos.classList.remove('a-trocar');
+      }, 260);
+    };
+    var tratarVideos = function(){
+      slides.forEach(function(s, j){
+        var v = s.querySelector('video');
+        if(!v) return;
+        var deveTocar = j === atual && emVista && !document.hidden;
+        if(deveTocar){
+          if(!v.getAttribute('src')){
+            v.preload = 'auto';
+            v.src = v.getAttribute(estreitoEv ? 'data-movel' : 'data-grande');
+          }
+          if(!suave || !v.muted){ var pr = v.play(); if(pr && pr.catch){ pr.catch(function(){}); } }
+        } else if(!v.paused){ v.pause(); }
+      });
+    };
+    var mostrar = function(i){
+      if(i === atual) return;
+      atual = i;
+      slides.forEach(function(s, j){
+        var ativo = j === i;
+        s.classList.toggle('ativo', ativo);
+        s.setAttribute('aria-hidden', ativo ? 'false' : 'true');
+        if('inert' in s){ s.inert = !ativo; }
+        if(seps[j]){
+          seps[j].setAttribute('aria-selected', ativo ? 'true' : 'false');
+          seps[j].tabIndex = ativo ? 0 : -1;
+        }
+      });
+      trocarTema(slides[i].getAttribute('data-tema'));
+      if(emVista){ animarSlide(slides[i]); }
+      tratarVideos();
+      /* no telemovel, o separador ativo fica sempre a vista dentro da fila */
+      var lista = seps[i] && seps[i].parentNode;
+      if(lista && lista.scrollWidth > lista.clientWidth){
+        lista.scrollTo({left: seps[i].offsetLeft - 12, behavior: suave ? 'auto' : 'smooth'});
+      }
+    };
+    var parar = function(){ secEventos.classList.remove('auto'); };
+    var seguinte = function(passo){ mostrar((atual + passo + slides.length) % slides.length); };
+
+    seps.forEach(function(b, j){
+      b.addEventListener('click', function(){ parar(); mostrar(j); });
+      var barra = b.querySelector('.progresso');
+      if(barra){
+        barra.addEventListener('animationend', function(){
+          if(secEventos.classList.contains('auto') && j === atual){ seguinte(1); }
+        });
+      }
     });
-    poster.addEventListener('mouseleave', function(){ poster.style.transform = ''; });
+
+    /* teclado: setas, Home e End sobre os separadores */
+    var listaSeps = secEventos.querySelector('[role="tablist"]');
+    if(listaSeps){
+      listaSeps.addEventListener('keydown', function(e){
+        var n = slides.length, i = null;
+        if(e.key === 'ArrowRight'){ i = (atual + 1) % n; }
+        else if(e.key === 'ArrowLeft'){ i = (atual - 1 + n) % n; }
+        else if(e.key === 'Home'){ i = 0; }
+        else if(e.key === 'End'){ i = n - 1; }
+        if(i === null) return;
+        e.preventDefault(); parar(); mostrar(i); seps[i].focus();
+      });
+    }
+
+    /* deslizar com o dedo sobre o cartaz */
+    var x0 = null, y0 = null;
+    palcoEv.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, {passive:true});
+    palcoEv.addEventListener('touchend', function(e){
+      if(x0 === null || slides.length < 2) return;
+      var dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0;
+      if(Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5){ parar(); seguinte(dx < 0 ? 1 : -1); }
+      x0 = y0 = null;
+    }, {passive:true});
+
+    /* a passagem automatica pausa com o rato por cima, com o foco la dentro, ou fora do ecra */
+    secEventos.addEventListener('mouseenter', function(){ secEventos.classList.add('pausa-rato'); });
+    secEventos.addEventListener('mouseleave', function(){ secEventos.classList.remove('pausa-rato'); });
+    secEventos.addEventListener('focusin', function(){ secEventos.classList.add('pausa-foco'); });
+    secEventos.addEventListener('focusout', function(){ secEventos.classList.remove('pausa-foco'); });
+
+    /* botao de som do cartaz em video */
+    Array.prototype.forEach.call(secEventos.querySelectorAll('.som'), function(b){
+      var v = b.parentNode.querySelector('video');
+      if(!v) return;
+      b.addEventListener('click', function(){
+        parar();
+        if(!v.getAttribute('src')){ v.src = v.getAttribute(estreitoEv ? 'data-movel' : 'data-grande'); }
+        v.muted = !v.muted;
+        if(v.paused){ var pr = v.play(); if(pr && pr.catch){ pr.catch(function(){}); } }
+        b.setAttribute('aria-pressed', v.muted ? 'false' : 'true');
+        b.querySelector('.som-texto').textContent = v.muted ? 'Ouvir' : 'Sem som';
+      });
+    });
+
+    mostrar(0);
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(e){
+        emVista = e[0].isIntersecting;
+        secEventos.classList.toggle('pausa-fora', !emVista);
+        if(emVista && !slides[atual].classList.contains('mostrar')){ animarSlide(slides[atual]); }
+        tratarVideos();
+      }, {threshold:.2}).observe(secEventos);
+    } else {
+      emVista = true; animarSlide(slides[atual]);
+    }
+    setTimeout(function(){ if(!slides[atual].classList.contains('mostrar')){ slides[atual].classList.add('mostrar'); } }, 3200);
+    document.addEventListener('visibilitychange', tratarVideos);
+
+    /* o cartaz inclina-se ligeiramente com o rato */
+    if(!suave && window.matchMedia('(hover: hover)').matches){
+      Array.prototype.forEach.call(secEventos.querySelectorAll('.poster'), function(poster){
+        poster.addEventListener('mousemove', function(ev){
+          var r = poster.getBoundingClientRect();
+          var x = (ev.clientX - r.left) / r.width - .5;
+          var y = (ev.clientY - r.top) / r.height - .5;
+          poster.style.transform = 'perspective(1200px) rotateY(' + (x * 4).toFixed(2) + 'deg) rotateX(' + (-y * 3).toFixed(2) + 'deg)';
+        });
+        poster.addEventListener('mouseleave', function(){ poster.style.transform = ''; });
+      });
+    }
   }
 
   /* titulos, subtitulos e paragrafos entram todos com o mesmo gesto */
@@ -1082,7 +1473,7 @@ section[id],main[id]{scroll-margin-top:92px}
   Array.prototype.forEach.call(document.querySelectorAll(paraRevelar), function(el){
     if(el.classList.contains('revelar')) return;
     if(el.closest('.heroi')) return;                      /* o heroi tem a sua propria entrada */
-    if(el.classList.contains('cartaz-titulo')) return;    /* este entra por mascara */
+    if(el.closest('.ev')) return;                         /* os eventos tem a sua propria entrada */
     el.classList.add('revelar');
   });
 
@@ -1105,29 +1496,31 @@ section[id],main[id]{scroll-margin-top:92px}
     mostrarTudo();
   }
 
-  /* contagem decrescente do proximo evento */
-  var contagem = document.querySelector('.contagem');
-  if(contagem){
-    var quando = new Date(contagem.getAttribute('data-quando')).getTime();
-    var fim = new Date(contagem.getAttribute('data-fim')).getTime();
-    var cxDias = contagem.querySelector('[data-dias]');
-    var cxHoras = contagem.querySelector('[data-horas]');
-    var cxMin = contagem.querySelector('[data-min]');
-    var relogio;
+  /* contagem decrescente de cada evento */
+  var relogios = Array.prototype.slice.call(document.querySelectorAll('.contagem'));
+  if(relogios.length){
     var tique = function(){
       var agora = Date.now();
-      if(agora > fim){
-        contagem.innerHTML = '<p class="rotulo">Edição</p><p class="passou">Outubro de 2026</p>';
-        if(relogio) clearInterval(relogio);
-        return;
-      }
-      var falta = Math.max(0, quando - agora);
-      cxDias.textContent = Math.floor(falta / 86400000);
-      cxHoras.textContent = Math.floor(falta / 3600000) % 24;
-      cxMin.textContent = Math.floor(falta / 60000) % 60;
+      relogios.forEach(function(c){
+        if(!document.body.contains(c) || c.classList.contains('agora')) return;
+        var ev = c.closest('.ev');
+        var quando = new Date(c.getAttribute('data-quando')).getTime();
+        var fim = ev ? new Date(ev.getAttribute('data-fim')).getTime() : quando;
+        var falta = quando - agora;
+        if(falta <= 0){
+          c.classList.add('agora');
+          c.innerHTML = agora < fim
+            ? '<p class="rotulo">Está a acontecer</p><p class="passou">Agora</p>'
+            : '<p class="rotulo">Terminou</p><p class="passou">Obrigado</p>';
+          return;
+        }
+        c.querySelector('[data-dias]').textContent = Math.floor(falta / 86400000);
+        c.querySelector('[data-horas]').textContent = Math.floor(falta / 3600000) % 24;
+        c.querySelector('[data-min]').textContent = Math.floor(falta / 60000) % 60;
+      });
     };
     tique();
-    relogio = setInterval(tique, 20000);
+    setInterval(tique, 20000);
   }
 
   /* zoom lento das fotos, conduzido pelo scroll */
