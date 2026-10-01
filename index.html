@@ -54,66 +54,6 @@
   "@graph": [
     {
       "@type": "Event",
-      "name": "Imersão de Finanças · 2.ª edição",
-      "startDate": "2026-09-26T19:30+01:00",
-      "endDate": "2026-09-26T22:00+01:00",
-      "eventStatus": "https://schema.org/EventScheduled",
-      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-      "image": "https://ibacportugal.pt/assets/eventos/imersao-financas.webp",
-      "location": {
-        "@type": "Place",
-        "name": "IBAC · Igreja Batista Cristã Portugal",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Rua da Bela Vista 25, Armazém 3",
-          "postalCode": "2735-184",
-          "addressLocality": "Agualva-Cacém",
-          "addressCountry": "PT"
-        }
-      },
-      "organizer": {
-        "@type": "Organization",
-        "name": "IBAC Portugal",
-        "url": "https://ibacportugal.pt/"
-      },
-      "isAccessibleForFree": true,
-      "performer": {
-        "@type": "Person",
-        "name": "Pr. Hanniel Pontes"
-      }
-    },
-    {
-      "@type": "Event",
-      "name": "Culto com o Pr. Juninho Afram",
-      "startDate": "2026-09-27T18:30+01:00",
-      "endDate": "2026-09-27T20:30+01:00",
-      "eventStatus": "https://schema.org/EventScheduled",
-      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-      "image": "https://ibacportugal.pt/assets/eventos/juninho-capa.webp",
-      "location": {
-        "@type": "Place",
-        "name": "IBAC · Igreja Batista Cristã Portugal",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Rua da Bela Vista 25, Armazém 3",
-          "postalCode": "2735-184",
-          "addressLocality": "Agualva-Cacém",
-          "addressCountry": "PT"
-        }
-      },
-      "organizer": {
-        "@type": "Organization",
-        "name": "IBAC Portugal",
-        "url": "https://ibacportugal.pt/"
-      },
-      "isAccessibleForFree": true,
-      "performer": {
-        "@type": "Person",
-        "name": "Pr. Juninho Afram"
-      }
-    },
-    {
-      "@type": "Event",
       "name": "Conf. Jovens IBAC",
       "startDate": "2026-10-03T20:00+01:00",
       "endDate": "2026-10-04T20:00+01:00",
@@ -459,6 +399,27 @@ section[id],main[id]{scroll-margin-top:92px}
 .contagem .passou{font-family:Archivo,sans-serif;font-size:1.4rem;letter-spacing:-.02em;color:var(--acento-texto)}
 .cartaz .acoes{margin-top:0}
 
+/* --- galeria "Como foi" --- */
+.momentos{padding-top:clamp(56px,7vw,110px)}
+.momentos-topo{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:24px 40px;
+  margin-bottom:clamp(28px,3.4vw,46px)}
+.momentos-setas{display:flex;gap:10px}
+.redonda{width:52px;height:52px;border-radius:50%;border:1px solid var(--linha);background:transparent;color:var(--tinta);
+  display:grid;place-items:center;cursor:pointer;
+  transition:background .25s ease,color .25s ease,border-color .25s ease,transform .25s var(--mola)}
+.redonda:hover:not(:disabled){background:var(--tinta);color:#fff;border-color:var(--tinta);transform:translateY(-2px)}
+.redonda:disabled{opacity:.28;cursor:default}
+.redonda svg{width:20px;height:20px}
+.tira{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;cursor:grab;
+  padding-inline:var(--gutter);scroll-padding-left:var(--gutter);padding-bottom:6px}
+.tira::-webkit-scrollbar{display:none}
+.tira:focus-visible{outline:3px solid var(--carmim);outline-offset:-3px}
+.tira.a-arrastar{cursor:grabbing;scroll-snap-type:none}
+.tira figure{flex:0 0 auto;margin:0;scroll-snap-align:start}
+.tira img{height:clamp(300px,40vw,470px);width:auto;max-width:none;display:block;border-radius:var(--r-m);
+  background:var(--areia-2);-webkit-user-drag:none;user-select:none}
+.tira figcaption{margin-top:12px;font-size:.76rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--tinta-45)}
+
 /* --- faixa dos pilares --- */
 .pilares{background:var(--carmim);color:#fff;padding:var(--passo) 0;border-radius:var(--r-l);margin-inline:var(--gutter)}
 .pilares .wrap{padding-inline:clamp(20px,4vw,56px)}
@@ -743,110 +704,21 @@ section[id],main[id]{scroll-margin-top:92px}
        data-fim  · passada essa hora o evento sai sozinho do site, com o separador e a linha da agenda.
        data-tema · cor das luzes e dos destaques: jovens, financas ou juninho (definidos no CSS).
        Evento novo: copiar um artigo, trocar textos, datas, cartaz e tema, e juntar o seu separador. -->
-  <section class="cartaz" id="eventos" data-tema="financas" aria-labelledby="t-eventos">
+  <section class="cartaz" id="eventos" data-tema="jovens" aria-labelledby="t-eventos">
     <span class="brilho" aria-hidden="true"></span>
     <span class="palco" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
     <div class="wrap">
       <div class="eventos-topo">
         <h2 class="rotulo" id="t-eventos">Próximos eventos</h2>
         <div class="separadores" role="tablist" aria-label="Escolher evento">
-          <button type="button" role="tab" id="sep-financas" aria-controls="ev-financas" data-tema="financas" aria-selected="true"><small>Sáb 26 set</small><span>Imersão de Finanças</span><i class="progresso" aria-hidden="true"></i></button>
-          <button type="button" role="tab" id="sep-juninho" aria-controls="ev-juninho" data-tema="juninho" aria-selected="false" tabindex="-1"><small>Dom 27 set</small><span>Pr. Juninho Afram</span><i class="progresso" aria-hidden="true"></i></button>
-          <button type="button" role="tab" id="sep-jovens" aria-controls="ev-jovens" data-tema="jovens" aria-selected="false" tabindex="-1"><small>3 e 4 out</small><span>Conf. Jovens IBAC</span><i class="progresso" aria-hidden="true"></i></button>
+          <button type="button" role="tab" id="sep-jovens" aria-controls="ev-jovens" data-tema="jovens" aria-selected="true"><small>3 e 4 out</small><span>Conf. Jovens IBAC</span><i class="progresso" aria-hidden="true"></i></button>
         </div>
       </div>
 
       <div class="eventos-palco">
 
-        <!-- 1 · Imersao de Financas -->
-        <article class="ev ativo" id="ev-financas" role="tabpanel" aria-labelledby="sep-financas" data-tema="financas" data-fim="2026-09-26T22:30:00+01:00">
-          <div class="cartaz-cima">
-            <div>
-              <span class="etiqueta">2.ª edição · Finanças</span>
-              <h3 class="cartaz-titulo"><span class="mask"><i>Imersão de Finanças</i></span></h3>
-            </div>
-            <p class="cartaz-lede">A segunda Imersão de Finanças, com o Pr. Hanniel Pontes. Uma noite para olhar para as contas da casa à luz da Palavra.</p>
-          </div>
-          <figure class="poster">
-            <img src="assets/eventos/imersao-financas.webp" width="1800" height="850"
-                 alt="Cartaz da segunda Imersão de Finanças com o Pr. Hanniel Pontes, sábado 26 de setembro de 2026 às 19h30"
-                 loading="lazy" decoding="async">
-            <!-- riscos por cima da data do cartaz, nas coordenadas da imagem (1800x850) -->
-            <svg class="anotacao" viewBox="0 0 1800 850" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-              <g fill="none" stroke="#0E0E10" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" style="transform-origin:77.5% 56.5%">
-                <path class="circulo" pathLength="100" transform="rotate(-3 1395 480)" d="M1225 480a170 50 0 1 0 340 0a170 50 0 1 0-340 0"/>
-                <path class="risco r1" pathLength="100" d="M1540 424L1553 398"/>
-                <path class="risco r2" pathLength="100" d="M1565 439L1590 421"/>
-                <path class="risco r3" pathLength="100" d="M1577 461L1606 455"/>
-                <path class="seta" pathLength="100" d="M1712 648C1690 590 1640 540 1584 516"/>
-                <path class="ponta" pathLength="100" d="M1612 504L1582 516L1598 544"/>
-              </g>
-            </svg>
-          </figure>
-          <div class="cartaz-baixo">
-            <div class="cartaz-info">
-              <ul class="datas">
-                <li><b>Sábado, 26 de setembro</b><span>19h30</span></li>
-                <li><b>Com</b><span>Pr. Hanniel Pontes</span></li>
-                <li><b>Rua da Bela Vista 25</b><span>Agualva-Cacém</span></li>
-              </ul>
-              <div class="acoes">
-                <a class="btn btn-primario" href="https://wa.me/351926615020?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20queria%20participar%20na%20Imers%C3%A3o%20de%20Finan%C3%A7as%2C%20s%C3%A1bado%2026%20de%20setembro." target="_blank" rel="noopener"><span>Quero participar</span><span class="seta" aria-hidden="true">&#8594;</span></a>
-                <a class="btn btn-fantasma" href="https://maps.app.goo.gl/MXZnZDEoUqTcaqUt9" target="_blank" rel="noopener"><span>Como chegar</span></a>
-              </div>
-            </div>
-            <aside class="contagem" data-quando="2026-09-26T19:30:00+01:00" aria-label="Contagem decrescente para a Imersão de Finanças">
-              <p class="rotulo">Falta</p>
-              <div class="relogio">
-                <div><b data-dias>--</b><span>dias</span></div>
-                <div><b data-horas>--</b><span>horas</span></div>
-                <div><b data-min>--</b><span>min</span></div>
-              </div>
-            </aside>
-          </div>
-        </article>
-
-        <!-- 2 · Culto com o Pr. Juninho Afram · o cartaz e um video, com botao de som -->
-        <article class="ev" id="ev-juninho" role="tabpanel" aria-labelledby="sep-juninho" data-tema="juninho" data-fim="2026-09-27T21:00:00+01:00">
-          <div class="cartaz-cima">
-            <div>
-              <span class="etiqueta">Culto especial</span>
-              <h3 class="cartaz-titulo"><span class="mask"><i>Pr. Juninho Afram</i></span></h3>
-            </div>
-            <p class="cartaz-lede">Um Culto da Família diferente, com a guitarra e a Palavra do Pr. Juninho Afram. Traga a família e quem precisa de ouvir.</p>
-          </div>
-          <figure class="poster poster-video">
-            <img class="fundo-video" src="assets/eventos/juninho-capa.webp" width="1280" height="466" alt="" aria-hidden="true" loading="lazy" decoding="async">
-            <video class="video-evento" muted loop playsinline preload="none" poster="assets/eventos/juninho-capa.webp"
-                   data-grande="assets/eventos/juninho.mp4" data-movel="assets/eventos/juninho-movel.mp4"
-                   aria-label="Vídeo do Pr. Juninho Afram a tocar guitarra, a anunciar o culto de domingo 27 de setembro às 18h30"></video>
-            <button class="som" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor" stroke="none"/><path class="onda" d="M16.5 8.5a5 5 0 0 1 0 7M19.5 5.5a9 9 0 0 1 0 13"/><path class="corte" d="M16 9.5l5 5M21 9.5l-5 5"/></svg><span class="som-texto">Ouvir</span></button>
-          </figure>
-          <div class="cartaz-baixo">
-            <div class="cartaz-info">
-              <ul class="datas">
-                <li><b>Domingo, 27 de setembro</b><span>18h30</span></li>
-                <li><b>Culto da Família</b><span>Entrada livre</span></li>
-                <li><b>Rua da Bela Vista 25</b><span>Agualva-Cacém</span></li>
-              </ul>
-              <div class="acoes">
-                <a class="btn btn-primario" href="https://wa.me/351926615020?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20vou%20ao%20culto%20com%20o%20Pr.%20Juninho%20Afram%2C%20domingo%2027%20de%20setembro." target="_blank" rel="noopener"><span>Vou estar lá</span><span class="seta" aria-hidden="true">&#8594;</span></a>
-                <a class="btn btn-fantasma" href="https://maps.app.goo.gl/MXZnZDEoUqTcaqUt9" target="_blank" rel="noopener"><span>Como chegar</span></a>
-              </div>
-            </div>
-            <aside class="contagem" data-quando="2026-09-27T18:30:00+01:00" aria-label="Contagem decrescente para o culto com o Pr. Juninho Afram">
-              <p class="rotulo">Falta</p>
-              <div class="relogio">
-                <div><b data-dias>--</b><span>dias</span></div>
-                <div><b data-horas>--</b><span>horas</span></div>
-                <div><b data-min>--</b><span>min</span></div>
-              </div>
-            </aside>
-          </div>
-        </article>
-
         <!-- 3 · Conf. Jovens IBAC -->
-        <article class="ev" id="ev-jovens" role="tabpanel" aria-labelledby="sep-jovens" data-tema="jovens" data-fim="2026-10-04T21:00:00+01:00">
+        <article class="ev ativo" id="ev-jovens" role="tabpanel" aria-labelledby="sep-jovens" data-tema="jovens" data-fim="2026-10-04T21:00:00+01:00">
           <div class="cartaz-cima">
             <div>
               <span class="etiqueta">Jovens</span>
@@ -893,6 +765,74 @@ section[id],main[id]{scroll-margin-top:92px}
         </article>
 
       </div>
+    </div>
+  </section>
+
+  <!-- ============ COMO FOI ============
+       Galeria em tira: altura fixa, largura conforme o formato de cada fotografia.
+       As fotos saem do preparar_momentos.py. Para mostrar outro evento, trocam-se
+       as fotografias, o titulo e o texto. -->
+  <section class="seccao momentos" id="momentos" aria-labelledby="t-momentos">
+    <div class="wrap momentos-topo">
+      <div>
+        <p class="rotulo">Como foi</p>
+        <h2 class="titulo" id="t-momentos" style="margin-top:18px;max-width:17ch">A noite com o <b class="carmim">Pr. Juninho Afram</b>.</h2>
+        <p class="lede" style="margin-top:22px">Domingo, 27 de setembro. A casa cheia, louvor até ao fim, a Palavra sobre identidade e gente a orar uns pelos outros.</p>
+      </div>
+      <div class="momentos-setas">
+        <button class="redonda" type="button" data-passo="-1" aria-controls="tira" aria-label="Ver fotografias anteriores"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 5l-7 7 7 7"/></svg></button>
+        <button class="redonda" type="button" data-passo="1" aria-controls="tira" aria-label="Ver fotografias seguintes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
+    <div class="tira revelar" id="tira" tabindex="0" role="region" aria-label="Fotografias da noite com o Pr. Juninho Afram">
+      <figure>
+        <img src="assets/momentos/juninho-01-casa-cheia.webp" width="1260" height="840" alt="Igreja cheia, de pé e com as mãos levantadas durante o louvor" decoding="async">
+        <figcaption>A casa cheia</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/momentos/juninho-02-bem-vindo.webp" width="560" height="840" alt="Pr. Juninho Afram a tocar no palco, com o ecrã a dar as boas-vindas" decoding="async">
+        <figcaption>Muito bem-vindo</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/momentos/juninho-03-louvor.webp" width="1260" height="840" alt="Pessoas a cantar de mãos levantadas no meio da congregação" loading="lazy" decoding="async">
+        <figcaption>Louvor</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/momentos/juninho-04-guitarra.webp" width="560" height="840" alt="Pr. Juninho Afram a sorrir, de guitarra na mão" loading="lazy" decoding="async">
+        <figcaption>Pr. Juninho Afram</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/momentos/juninho-05-sorrisos.webp" width="1260" height="840" alt="Pessoas sentadas a rir durante o culto" loading="lazy" decoding="async">
+        <figcaption>Gente da casa</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/momentos/juninho-06-canto.webp" width="1260" height="840" alt="Pr. Juninho Afram a cantar, com o dedo apontado ao alto" loading="lazy" decoding="async">
+        <figcaption>A casa a cantar</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/momentos/juninho-07-palco.webp" width="1260" height="840" alt="O palco visto de lado, com o tema Identidade no ecrã" loading="lazy" decoding="async">
+        <figcaption>Identidade</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/momentos/juninho-08-palavra.webp" width="1260" height="840" alt="Pr. Juninho Afram a pregar, junto ao púlpito" loading="lazy" decoding="async">
+        <figcaption>A Palavra</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/momentos/juninho-09-oracao.webp" width="560" height="840" alt="Homem com as mãos no rosto, em oração" loading="lazy" decoding="async">
+        <figcaption>Oração</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/momentos/juninho-10-abraco.webp" width="560" height="840" alt="Duas pessoas abraçadas durante o momento de oração" loading="lazy" decoding="async">
+        <figcaption>Uns pelos outros</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/momentos/juninho-11-altar.webp" width="1260" height="840" alt="Pessoas em pé diante do altar, a receber oração" loading="lazy" decoding="async">
+        <figcaption>Diante do altar</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/momentos/juninho-12-equipa.webp" width="1260" height="840" alt="Equipa da igreja e convidados em fotografia de grupo, no palco" loading="lazy" decoding="async">
+        <figcaption>A equipa, no fim</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -1056,16 +996,6 @@ section[id],main[id]{scroll-margin-top:92px}
           <h3>Ceia do Senhor</h3>
           <p class="quando">1.º domingo do mês · durante o culto</p>
           <span class="pilula fixo">Mensal</span>
-        </article>
-        <article class="evento revelar" data-fim="2026-09-26T22:30:00+01:00">
-          <h3>Imersão de Finanças</h3>
-          <p class="quando">Sábado, 26 de setembro · 19h30 · Pr. Hanniel Pontes</p>
-          <span class="pilula fixo">Evento especial</span>
-        </article>
-        <article class="evento revelar" data-fim="2026-09-27T21:00:00+01:00">
-          <h3>Culto com o Pr. Juninho Afram</h3>
-          <p class="quando">Domingo, 27 de setembro · 18h30</p>
-          <span class="pilula fixo">Culto especial</span>
         </article>
         <article class="evento revelar" data-fim="2026-10-04T21:00:00+01:00">
           <h3>Conf. Jovens IBAC</h3>
@@ -1466,6 +1396,46 @@ section[id],main[id]{scroll-margin-top:92px}
         poster.addEventListener('mouseleave', function(){ poster.style.transform = ''; });
       });
     }
+  }
+
+  /* tira de fotografias: setas, arrastar com o rato e deslizar com o dedo */
+  var tira = document.getElementById('tira');
+  if(tira){
+    var setasTira = Array.prototype.slice.call(document.querySelectorAll('[data-passo]'));
+    var passoTira = function(){
+      var f = tira.querySelector('figure');
+      return (f ? f.getBoundingClientRect().width : 320) + 14;
+    };
+    var actualizarSetas = function(){
+      var fim = tira.scrollWidth - tira.clientWidth - 4;
+      setasTira.forEach(function(b){
+        b.disabled = (+b.getAttribute('data-passo') < 0) ? tira.scrollLeft <= 4 : tira.scrollLeft >= fim;
+      });
+    };
+    setasTira.forEach(function(b){
+      b.addEventListener('click', function(){
+        tira.scrollBy({left: (+b.getAttribute('data-passo')) * passoTira(), behavior: suave ? 'auto' : 'smooth'});
+      });
+    });
+    tira.addEventListener('scroll', actualizarSetas, {passive:true});
+    window.addEventListener('resize', actualizarSetas);
+    setTimeout(actualizarSetas, 300);
+
+    var aArrastar = false, xInicio = 0, scrollInicio = 0;
+    tira.addEventListener('pointerdown', function(e){
+      if(e.pointerType === 'touch') return;          /* no telemovel ja desliza sozinho */
+      aArrastar = true; xInicio = e.clientX; scrollInicio = tira.scrollLeft;
+      tira.classList.add('a-arrastar');
+      if(tira.setPointerCapture){ tira.setPointerCapture(e.pointerId); }
+    });
+    tira.addEventListener('pointermove', function(e){
+      if(!aArrastar) return;
+      tira.scrollLeft = scrollInicio - (e.clientX - xInicio);
+    });
+    var largarTira = function(){ aArrastar = false; tira.classList.remove('a-arrastar'); actualizarSetas(); };
+    tira.addEventListener('pointerup', largarTira);
+    tira.addEventListener('pointercancel', largarTira);
+    tira.addEventListener('dragstart', function(e){ e.preventDefault(); });
   }
 
   /* titulos, subtitulos e paragrafos entram todos com o mesmo gesto */
