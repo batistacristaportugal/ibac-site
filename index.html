@@ -54,12 +54,17 @@
   "@graph": [
     {
       "@type": "Event",
-      "name": "Conf. Jovens IBAC",
-      "startDate": "2026-10-03T20:00+01:00",
-      "endDate": "2026-10-04T20:00+01:00",
+      "name": "Workshop Alexandre Aposan",
+      "description": "Workshop aberto a todos os públicos: música instrumental ao vivo, músicas do Entre Irmãos e do Oficina G3, e perguntas e respostas sobre carreira e ministério.",
+      "startDate": "2026-12-11T20:00+00:00",
+      "endDate": "2026-12-11T22:00+00:00",
       "eventStatus": "https://schema.org/EventScheduled",
       "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-      "image": "https://ibacportugal.pt/assets/eventos/conf-jovens.webp",
+      "image": "https://ibacportugal.pt/assets/eventos/workshop-aposan.webp",
+      "performer": {
+        "@type": "Person",
+        "name": "Alexandre Aposan"
+      },
       "location": {
         "@type": "Place",
         "name": "IBAC · Igreja Batista Cristã Portugal",
@@ -76,7 +81,15 @@
         "name": "IBAC Portugal",
         "url": "https://ibacportugal.pt/"
       },
-      "isAccessibleForFree": true
+      "offers": {
+        "@type": "Offer",
+        "price": "15.00",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/LimitedAvailability",
+        "url": "https://wa.me/351926615020?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20comprar%20bilhete%20para%20o%20Workshop%20com%20o%20Alexandre%20Aposan%2C%20dia%2011%20de%20dezembro."
+      },
+      "maximumAttendeeCapacity": 250,
+      "isAccessibleForFree": false
     }
   ]
 }
@@ -273,6 +286,8 @@ section[id],main[id]{scroll-margin-top:92px}
   --acento:#F2CF1F;--acento-txt:#0E0E10;--acento-texto:#F2CF1F;--cta:#CE1145;--cta-txt:#fff}
 [data-tema="financas"]{--luzA:1,245,184;--luzB:255,255,255;--luzC:0,170,130;
   --acento:#01F5B8;--acento-txt:#0E0E10;--acento-texto:#3FF7C8;--cta:#01F5B8;--cta-txt:#0E0E10}
+[data-tema="aposan"]{--luzA:206,17,69;--luzB:255,120,40;--luzC:242,207,31;
+  --acento:#F2CF1F;--acento-txt:#0E0E10;--acento-texto:#F2CF1F;--cta:#F2CF1F;--cta-txt:#0E0E10}
 [data-tema="juninho"]{--luzA:239,0,2;--luzB:255,110,40;--luzC:255,255,255;
   --acento:#EF0002;--acento-txt:#fff;--acento-texto:#FF5147;--cta:#EF0002;--cta-txt:#fff}
 
@@ -702,58 +717,48 @@ section[id],main[id]{scroll-margin-top:92px}
   <!-- ============ PROXIMOS EVENTOS ============
        Cada evento e um artigo com a classe ev, todos com o mesmo desenho, por ordem de data.
        data-fim  · passada essa hora o evento sai sozinho do site, com o separador e a linha da agenda.
-       data-tema · cor das luzes e dos destaques: jovens, financas ou juninho (definidos no CSS).
+       data-tema · cor das luzes e dos destaques: jovens, financas, juninho ou aposan (definidos no CSS).
        Evento novo: copiar um artigo, trocar textos, datas, cartaz e tema, e juntar o seu separador. -->
-  <section class="cartaz" id="eventos" data-tema="jovens" aria-labelledby="t-eventos">
+  <section class="cartaz" id="eventos" data-tema="aposan" aria-labelledby="t-eventos">
     <span class="brilho" aria-hidden="true"></span>
     <span class="palco" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
     <div class="wrap">
       <div class="eventos-topo">
         <h2 class="rotulo" id="t-eventos">Próximos eventos</h2>
         <div class="separadores" role="tablist" aria-label="Escolher evento">
-          <button type="button" role="tab" id="sep-jovens" aria-controls="ev-jovens" data-tema="jovens" aria-selected="true"><small>3 e 4 out</small><span>Conf. Jovens IBAC</span><i class="progresso" aria-hidden="true"></i></button>
+          <button type="button" role="tab" id="sep-aposan" aria-controls="ev-aposan" data-tema="aposan" aria-selected="true"><small>11 dez</small><span>Workshop Alexandre Aposan</span><i class="progresso" aria-hidden="true"></i></button>
         </div>
       </div>
 
       <div class="eventos-palco">
 
-        <!-- 3 · Conf. Jovens IBAC -->
-        <article class="ev ativo" id="ev-jovens" role="tabpanel" aria-labelledby="sep-jovens" data-tema="jovens" data-fim="2026-10-04T21:00:00+01:00">
+        <!-- Workshop Alexandre Aposan · sexta, 11 de dezembro, 20h00 (2 horas) -->
+        <article class="ev ativo" id="ev-aposan" role="tabpanel" aria-labelledby="sep-aposan" data-tema="aposan" data-fim="2026-12-11T22:30:00+00:00">
           <div class="cartaz-cima">
             <div>
-              <span class="etiqueta">Jovens</span>
-              <h3 class="cartaz-titulo"><span class="mask"><i>Conf. Jovens IBAC</i></span></h3>
+              <span class="etiqueta">Workshop</span>
+              <h3 class="cartaz-titulo"><span class="mask"><i>Alexandre Aposan</i></span></h3>
             </div>
-            <p class="cartaz-lede">Dois dias para a nova geração desta casa: louvor, Palavra e gente a caminhar na mesma direção. Traga os seus amigos.</p>
+            <p class="cartaz-lede">Aberto a todos os públicos: música instrumental ao vivo, músicas do Entre Irmãos e do Oficina G3, e perguntas e respostas sobre carreira e ministério.</p>
           </div>
           <figure class="poster">
-            <img src="assets/eventos/conf-jovens.webp" width="1800" height="850"
-                 alt="Cartaz da Conf. Jovens IBAC, 3 e 4 de outubro de 2026, sábado às 20h00 e domingo às 18h30"
+            <img src="assets/eventos/workshop-aposan.webp" width="1800" height="850"
+                 alt="Cartaz do Workshop com Alexandre Aposan, sexta-feira, 11 de dezembro, às 20h00, na IBAC, Rua da Bela Vista 25, Agualva-Cacém"
                  loading="lazy" decoding="async">
-            <!-- riscos por cima da data 3-4 do cartaz, nas coordenadas da imagem (1800x850) -->
-            <svg class="anotacao" viewBox="0 0 1800 850" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-              <g fill="none" stroke="#CE1145" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" style="transform-origin:15.4% 66%">
-                <path class="circulo" pathLength="100" transform="rotate(-5 277 560)"
-                      d="M131 560a146 92 0 1 0 292 0a146 92 0 1 0-292 0"/>
-                <path class="swoosh" pathLength="100" d="M186 702q94 34 190 -6"/>
-                <path class="seta" pathLength="100" d="M52 790C62 710 84 648 120 598"/>
-                <path class="ponta" pathLength="100" d="M92 626L122 592L154 610"/>
-              </g>
-            </svg>
           </figure>
           <div class="cartaz-baixo">
             <div class="cartaz-info">
               <ul class="datas">
-                <li><b>Sábado, 3 de outubro</b><span>20h00</span></li>
-                <li><b>Domingo, 4 de outubro</b><span>18h30</span></li>
-                <li><b>Rua da Bela Vista 25</b><span>Agualva-Cacém</span></li>
+                <li><b>Sexta, 11 de dezembro</b><span>20h00 · 2 horas</span></li>
+                <li><b>Entrada</b><span>15 € + 1 kg de alimento</span></li>
+                <li><b>Rua da Bela Vista 25, Armazém 3</b><span>Agualva-Cacém</span></li>
               </ul>
               <div class="acoes">
-                <a class="btn btn-primario" href="https://wa.me/351926615020?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20queria%20participar%20na%20Conf.%20Jovens%2C%20dias%203%20e%204%20de%20outubro." target="_blank" rel="noopener"><span>Quero participar</span><span class="seta" aria-hidden="true">&#8594;</span></a>
+                <a class="btn btn-primario" href="https://wa.me/351926615020?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20comprar%20bilhete%20para%20o%20Workshop%20com%20o%20Alexandre%20Aposan%2C%20dia%2011%20de%20dezembro." target="_blank" rel="noopener"><span>Comprar bilhete</span><span class="seta" aria-hidden="true">&#8594;</span></a>
                 <a class="btn btn-fantasma" href="https://maps.app.goo.gl/MXZnZDEoUqTcaqUt9" target="_blank" rel="noopener"><span>Como chegar</span></a>
               </div>
             </div>
-            <aside class="contagem" data-quando="2026-10-03T20:00:00+01:00" aria-label="Contagem decrescente para a Conf. Jovens IBAC">
+            <aside class="contagem" data-quando="2026-12-11T20:00:00+00:00" aria-label="Contagem decrescente para o Workshop com Alexandre Aposan">
               <p class="rotulo">Falta</p>
               <div class="relogio">
                 <div><b data-dias>--</b><span>dias</span></div>
@@ -997,9 +1002,9 @@ section[id],main[id]{scroll-margin-top:92px}
           <p class="quando">1.º domingo do mês · durante o culto</p>
           <span class="pilula fixo">Mensal</span>
         </article>
-        <article class="evento revelar" data-fim="2026-10-04T21:00:00+01:00">
-          <h3>Conf. Jovens IBAC</h3>
-          <p class="quando">3 e 4 de outubro · sábado 20h00, domingo 18h30</p>
+        <article class="evento revelar" data-fim="2026-12-11T22:30:00+00:00">
+          <h3>Workshop Alexandre Aposan</h3>
+          <p class="quando">Sexta, 11 de dezembro · 20h00 · lotação de 250 pessoas</p>
           <span class="pilula fixo">Evento especial</span>
         </article>
         <article class="evento revelar">
